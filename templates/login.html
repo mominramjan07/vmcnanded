@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - VMC Bonafide</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* -------- Header -------- */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            width: 60px;
+            height: 60px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        /* -------- Login Box -------- */
+        .login-container {
+            background-color: #fff;
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #003366;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        form p {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #003366;
+            color: white;
+            font-size: 17px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #001f4d;
+        }
+
+        /* -------- Footer -------- */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .login-container {
+                margin: 30px;
+                padding: 25px;
+            }
+
+            header img {
+                filter: drop-shadow(1px 1px 15px #fff);
+                height: 80px;
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 🔹 Header -->
+    <header>
+        <img src="{% static 'img/logo.png.png' %}" alt="College Logo">
+        <h1>Vishwabharti Mahavidalaya, CIDCO, Nanded</h1>
+    </header>
+
+    <!-- 🔹 Login Form -->
+    <div class="login-container">
+        <h2>🔐 Please Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- 🔹 Footer -->
+    <footer>
+        &copy; 2025 Vishwabharti Mahavidalaya. All Rights Reserved. | Designed & Developed by Momin Ramjan
+    </footer>
+</body>
+</html>

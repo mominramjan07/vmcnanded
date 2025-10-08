@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: vmc-by-momin
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: >
+      pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: >-
+      gunicorn VMC.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: VMC.settings
+      - key: DJANGO_SECRET_KEY
+        value: 'replace-this-with-a-secret-in-render'
